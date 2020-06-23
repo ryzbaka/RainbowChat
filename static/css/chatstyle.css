@@ -1,0 +1,28 @@
+.transcript-container {
+  overflow: auto;
+  max-height: 300px;
+  width: 100%;
+  border: 2px solid black;
+}
+.chat-interface {
+  border: 1px solid red;
+}
+.typing-box {
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  max-height: 100px;
+}
+.message {
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  height: 100%;
+  font-size: 100%;
+  width: 50%;
+}
+.client-status {
+  font-family: sans-serif;
+  color: white;
+  width: 10%;
+}

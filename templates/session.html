@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <link rel="stylesheet" href="../static/css/chatstyle.css" />
+  </head>
+  <body>
+    <div class="client-header">
+      <h1 class="client-name">{{ clientname }}'s Session</h1>
+      <p class="client-status"></p>
+    </div>
+    <div class="transcript-container">
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">Hello</p>
+      <p class="message">bottom</p>
+      <!--replace this with something that gets filled with something that javascript enters-->
+    </div>
+    <div class="chat-interface">
+      <!--<input class="typing-box" type="text" placeholder="Type messages here" />
+      -->
+      <textarea class="typing-box"></textarea>
+      <button>Send</button>
+      <button class="bottom-scroll">scroll to bottom</button>
+    </div>
+    <script src="../static/chatlogic.js"></script>
+  </body>
+</html>

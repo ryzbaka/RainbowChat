@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="message-container">
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+        <p>bottom</p>
+    </div>
+    <div>
+        <button class='bottom-scroll'>scroll to bottom</button>
+    </div>
+    <style>
+        .message-container{
+            overflow: auto;
+            max-height: 100px;
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        let someIndex=1
+        const messageContainer=document.querySelector('.message-container')
+        const bottomButton=document.querySelector('.bottom-scroll')
+        messageContainer.scrollTop=messageContainer.scrollHeight
+        bottomButton.addEventListener('click',()=>{
+            messageContainer.scrollTop=messageContainer.scrollHeight
+        })
+        messageContainer.addEventListener('scroll',()=>{
+            //console.log(messageContainer.scrollTop)
+            if(messageContainer.scrollTop===0){
+                alert('querying next 10 messages')
+                for(let i = 10; i>0;i--){
+                    const message=document.createElement('p')
+                    message.innerText="set-"+someIndex+" message"+i
+                    messageContainer.insertBefore(message,messageContainer.children[0])
+                }
+                someIndex+=1
+            }
+        })
+    </script>
+</body>
+</html>
