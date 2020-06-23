@@ -46,8 +46,6 @@ def session(username):
     timestamp=datetime.now().isoformat()
     return render_template('session.html',clientname=username,time=timestamp)
 
-def serverMessage():
-    print('server triggered event')
 
 '''
 =====================
@@ -64,12 +62,15 @@ def clientConnectedMessage(json,methods=['GET','POST']):
     add code for wrting user connection logs to database
     '''
 
+def updatedb(json):
+    print(f'\n\n{json}server triggered event\n\n')
 @socketio.on("client-message")
 def clientMessage(json,methods=['GET','POST']):
     print("\n\n\n\n")
     print(json)
     print("\n\n\n\n")
-    socketio.emit('message-to-transcript',json,callback=serverMessage)
+    socketio.emit('message-to-transcript',json,callback=updatedb)
+    updatedb(json)
 '''
 =======================
 ~~~~~~~~~~~~~~~~~~~~~~~

@@ -42,6 +42,7 @@ messageContainer.addEventListener("scroll", () => {
 });
 */
 
+
 /*
 This section is for socket code
 */
