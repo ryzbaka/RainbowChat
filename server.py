@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Flask, request, render_template
 from flask_socketio import SocketIO
+from datetime import datetime
 
 '''
 ============================
@@ -42,8 +43,11 @@ def signin():
 
 @app.route("/session/<username>")
 def session(username):
-    return render_template('session.html',clientname=username)
+    timestamp=datetime.now().isoformat()
+    return render_template('session.html',clientname=username,time=timestamp)
 
+def serverMessage():
+    print('server triggered event')
 
 '''
 =====================
@@ -56,6 +60,16 @@ def clientConnectedMessage(json,methods=['GET','POST']):
     #print(json['data'])
     username=json['data']
     print(f'\n\n~~ {username} CONECTED! ~~\n\n')
+    '''
+    add code for wrting user connection logs to database
+    '''
+
+@socketio.on("client-message")
+def clientMessage(json,methods=['GET','POST']):
+    print("\n\n\n\n")
+    print(json)
+    print("\n\n\n\n")
+    socketio.emit('message-to-transcript',json,callback=serverMessage)
 '''
 =======================
 ~~~~~~~~~~~~~~~~~~~~~~~
